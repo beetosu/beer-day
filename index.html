@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+    <title>When is National Beer Day?</title>
+    <script>
+        function addOrdinal(today) {
+            const date = today.getDate();
+            const nth = (d) => {
+                if (d > 3 && d < 21) return 'th';
+                switch (d % 10) {
+                  case 1:  return "st";
+                  case 2:  return "nd";
+                  case 3:  return "rd";
+                  default: return "th";
+                }
+            };
+            return nth(date);
+        }
+
+        // Function to format the date as a string
+        function formatDate(date) {
+            const options = { month: 'long', day: 'numeric' };
+            return date.toLocaleDateString(undefined, options) + addOrdinal(date) + ' 🍺';
+        }
+
+        // Function to update the paragraph with the current date
+        function updateDate() {
+            const now = new Date();
+            const dateString = formatDate(now);
+            const pElement = document.getElementById('beer-day');
+            if (pElement) {
+                pElement.textContent = dateString;
+            }
+        }
+
+        // Ensure the DOM is fully loaded before running the script
+        document.addEventListener('DOMContentLoaded', updateDate);
+    </script>
+    <style>
+        body {
+            margin: auto;
+            height: 100vh;
+            font: small-caps bold 24px/1 sans-serif;
+            background-image: linear-gradient(#ffff00, #ffcc00);
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            justify-content: center;
+        }
+
+        p {
+            font-size: 32px;
+        }
+
+        h1 {
+            font-size: 64px;
+        }
+    </style>
+</head>
+<body>
+    <audio hidden controls autoplay>
+            <source src="https://dn720303.ca.archive.org/0/items/rushdisco/rush/08%20Working%20Man.ogg" type="audio/ogg"/>
+    </audio>
+    <main>
+        <p>National Beer Day is</p>
+        <h1 id="beer-day">today</h1>
+    </main>
+</body>
+</html>

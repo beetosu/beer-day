@@ -41,32 +41,47 @@
             height: 100vh;
             font: small-caps bold 24px/1 sans-serif;
             background-image: linear-gradient(#ffff00, #ffcc00);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         main {
             display: flex;
             flex-direction: column;
             align-items: center;
-            height: 100%;
+            flex: 1;
             justify-content: center;
         }
 
-        p {
+        main p {
             font-size: 32px;
         }
 
         h1 {
             font-size: 64px;
         }
+
+        footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 16px;
+        }
     </style>
 </head>
 <body>
-    <audio hidden controls autoplay>
-            <source src="https://dn720303.ca.archive.org/0/items/rushdisco/rush/08%20Working%20Man.ogg" type="audio/ogg"/>
-    </audio>
     <main>
         <p>National Beer Day is</p>
         <h1 id="beer-day">today</h1>
     </main>
+    <footer>
+        <p>
+            <i>Song: "Working Man" by Rush</i>
+        </p>
+        <audio controls autoplay>
+            <source src="https://dn720303.ca.archive.org/0/items/rushdisco/rush/08%20Working%20Man.ogg" type="audio/ogg"/>
+        </audio>
+    </footer>
 </body>
 </html>
